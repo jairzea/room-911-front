@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
+
+ErrorDocument 503 "Server broken 1"
+ErrorDocument 500 "Server broken 2"
+ErrorDocument 404 "File not found"
+ErrorDocument 403 "Permission denied"
+ErrorDocument 401 "Authentication required"
+
